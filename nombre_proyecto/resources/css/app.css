@@ -1,0 +1,209 @@
+/* ==========================================================
+   🌤️ Estilos globales — DomoGas
+   Estilo cálido, terroso y minimalista tipo Cloudflare
+   ========================================================== */
+
+/* ---------------------------
+   IMPORTS
+--------------------------- */
+@import url('https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap');
+@import "animate.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------
+   PALETA DOMOGAS TERROSA
+--------------------------- */
+:root {
+  --domogas-beige: #f5e3c3;
+  --domogas-clay: #c6703d;
+  --domogas-dark-brown: #3b2a21;
+  --domogas-soft-clay: #d89366;
+  --domogas-terracotta: #b85628;
+}
+
+/* ---------------------------
+   BASE GLOBAL
+--------------------------- */
+html, body {
+  @apply font-sans text-[#3b2a21] antialiased;
+  scroll-behavior: smooth;
+}
+
+/* 🌾 Fondo general texturizado terracota difuminado */
+body {
+  background: 
+    linear-gradient(135deg, rgba(245, 227, 195, 0.85) 0%, rgba(198, 112, 61, 0.85) 60%, rgba(184, 86, 40, 0.9) 100%),
+    url("/images/textura-terracota.jpg");
+  background-blend-mode: soft-light;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ---------------------------
+   FONDO CLARO HERO
+--------------------------- */
+#hero {
+  background-image: 
+    linear-gradient(rgba(245, 227, 195, 0.9), rgba(245, 227, 195, 0.95)),
+    url("/images/textura-beige.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+}
+
+/* ---------------------------
+   BOTONES
+--------------------------- */
+.btn-domogas {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-sm;
+  background-color: var(--domogas-clay);
+  color: #fff;
+}
+.btn-domogas:hover {
+  background-color: var(--domogas-terracotta);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold border bg-white transition-all duration-200 shadow-sm;
+  border-color: var(--domogas-clay);
+  color: var(--domogas-clay);
+}
+.btn-outline:hover {
+  background-color: rgba(198, 112, 61, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------
+   TARJETAS / BLOQUES
+--------------------------- */
+.card-domogas {
+  @apply bg-white/90 backdrop-blur-sm border rounded-2xl shadow-md transition-transform duration-200;
+  border-color: rgba(198, 112, 61, 0.2);
+}
+.card-domogas:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------------------------
+   TEXTOS Y ENCABEZADOS
+--------------------------- */
+h1, h2, h3, h4, h5 {
+  @apply font-bold text-[#3b2a21];
+}
+.text-accent {
+  color: var(--domogas-clay);
+}
+
+/* ---------------------------
+   FORMULARIOS
+--------------------------- */
+input, select, textarea {
+  @apply border-gray-300 focus:border-[var(--domogas-clay)] focus:ring-[var(--domogas-clay)] rounded-lg;
+}
+
+/* ---------------------------
+   DEGRADADOS Y SECCIONES
+--------------------------- */
+.bg-gradient-domogas {
+  background: linear-gradient(135deg, var(--domogas-clay) 0%, var(--domogas-soft-clay) 60%, var(--domogas-beige) 100%);
+  color: #fff;
+}
+.bg-soft-domogas {
+  background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%);
+}
+
+/* ---------------------------
+   FOOTER Y LOGO
+--------------------------- */
+footer {
+  @apply text-center text-sm text-[#3b2a21]/70 py-6;
+  background-color: var(--domogas-beige);
+}
+.logo-domogas-small {
+  width: 64px;
+  height: auto;
+  opacity: 0.9;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+/* ---------------------------
+   NAVBAR
+--------------------------- */
+#menu-principal {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(245, 227, 195, 0.6);
+}
+#menu-principal a {
+  @apply transition-colors duration-200;
+  color: var(--domogas-dark-brown);
+}
+#menu-principal a:hover {
+  color: var(--domogas-clay);
+}
+
+/* ==========================================================
+   🌅 Efectos visuales premium para login (textura viva)
+   ========================================================== */
+
+/* ==========================================================
+   🌅 Efectos visuales para fondo con textura y luz
+   ========================================================== */
+
+/* Parallax suave del fondo */
+@keyframes slow-pan {
+  0% { background-position: 50% 50%; }
+  50% { background-position: 52% 48%; }
+  100% { background-position: 50% 50%; }
+}
+.animate-slow-pan {
+  animation: slow-pan 30s ease-in-out infinite alternate;
+}
+
+/* Luz radial en movimiento */
+@keyframes light-move {
+  0% { background-position: 20% 30%; opacity: 0.4; }
+  50% { background-position: 80% 70%; opacity: 0.6; }
+  100% { background-position: 20% 30%; opacity: 0.4; }
+}
+.animate-light-move {
+  animation: light-move 20s ease-in-out infinite;
+}
+/* ================================
+   🌬️ Animación flotante sutil (3D)
+=================================== */
+@keyframes float-smooth {
+  0% { transform: translateY(0) rotateZ(0deg); }
+  50% { transform: translateY(-10px) rotateZ(0.5deg); }
+  100% { transform: translateY(0) rotateZ(0deg); }
+}
+
+.animate-float-smooth {
+  animation: float-smooth 6s ease-in-out infinite;
+}
+@keyframes float-smooth {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.animate-float-smooth {
+  animation: float-smooth 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+
+/* ==========================================================
+   FIN DEL CSS
+   ========================================================== */
