@@ -16,6 +16,7 @@
         <a href="{{ route('orders.index') }}" class="hover:text-indigo-600">Mis pedidos</a>
         @if (auth()->user()->is_admin)
           <a href="{{ route('admin.home') }}" class="hover:text-indigo-600">Admin</a>
+          <a href="{{ route('admin.sales.index') }}" class="hover:text-indigo-600">Ventas</a>
         @endif
       @endauth
     </div>
@@ -34,4 +35,3 @@
     </div>
   </div>
 </nav>
-

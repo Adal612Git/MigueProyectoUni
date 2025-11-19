@@ -17,6 +17,7 @@
                                 <th class="py-2 px-3">Estado</th>
                                 <th class="py-2 px-3">Total</th>
                                 <th class="py-2 px-3">Items</th>
+                                <th class="py-2 px-3">Recibo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,7 @@
                                 <td class="py-2 px-3">{{ ucfirst($order->status) }}</td>
                                 <td class="py-2 px-3">$ {{ number_format($order->total, 2) }}</td>
                                 <td class="py-2 px-3">{{ $order->items->sum('quantity') }}</td>
+                                <td class="py-2 px-3"><a href="{{ route('orders.receipt.pdf', $order) }}" class="text-indigo-600 hover:underline">Descargar PDF</a></td>
                             </tr>
                         @empty
                             <tr><td class="py-4 px-3" colspan="5">No tienes pedidos todavía.</td></tr>
@@ -39,4 +41,3 @@
         </div>
     </div>
 </x-app-layout>
-

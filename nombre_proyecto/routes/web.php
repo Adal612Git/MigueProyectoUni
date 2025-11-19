@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\SalesController as AdminSalesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
@@ -56,6 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'place'])->name('checkout.place');
     Route::get('/mis-pedidos', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/mis-pedidos/{order}/recibo.pdf', [OrderController::class, 'receiptPdf'])->name('orders.receipt.pdf');
 });
 
 // Admin
@@ -63,8 +65,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/', function () { return redirect()->route('admin.products.index'); })->name('home');
     Route::resource('products', AdminProductController::class)->except(['show']);
     Route::resource('categories', AdminCategoryController::class)->except(['show']);
+    // Ventas
+    Route::get('ventas', [AdminSalesController::class, 'index'])->name('sales.index');
+    Route::get('ventas/export/pdf', [AdminSalesController::class, 'exportPdf'])->name('sales.export.pdf');
 });
 
 // Auth (Laravel Breeze)
 require __DIR__.'/auth.php';
-
